@@ -8,12 +8,18 @@ Notes API is a *short texts saving* service similar to its physical paper presen
 ## Help us improve!
 If you find any error or omission on the documentation, or you’d like us to cover or clarify something, just [let us know] (http://support.simkl.com/) and we’ll try to make you happy.
 
-# Group Notes
-Notes related resources of the **Notes API**
+# Group Authentication - OAuth
+The API uses OAuth2. If you know what's up with OAuth2, grab your library and starting rolling. This details our endpoints.
+
+To obtain a client_id and client_secret, create an application on the simkl website. Here are some helpful links to get your started:
 
 
-## Notes Collection [/notes]
-### List all Notes [GET]
+## Authorize [/notes]
+### Authorize Application [GET]
+Construct then redirect to this URL. The simkl website will request permissions for your app and the user will have the opportunity to sign up for a new simkl account or sign in with their existing account.
+
+**Note:** You should use the normal https://simkl.com hostname when creating this URL and not the API URL.
+
 + Response 200 (application/json)
 
         [{
@@ -21,23 +27,14 @@ Notes related resources of the **Notes API**
         }, {
           "id": 2, "title": "Pick-up posters from post-office"
         }]
-
-### Create a Note [POST]
-+ Request (application/json)
-
-        { "title": "Buy cheese and bread for breakfast." }
-
-+ Response 201 (application/json)
-
-        { "id": 3, "title": "Buy cheese and bread for breakfast." }
-
-## Note [/notes/{id}]
-A single Note object with all its details
-
+        
+## Token [/notes/{id}]
+### Exchange code for access_token [POST]
+Use the authorization code GET parameter sent back to your redirect_uri to get an access_token. Save the access_token so your app can authenticate the user by sending the Authorization header.
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
 
-### Retrieve a Note [GET]
+
 + Response 200 (application/json)
 
     + Header
@@ -47,8 +44,5 @@ A single Note object with all its details
     + Body
 
             { "id": 2, "title": "Pick-up posters from post-office" }
-
-### Remove a Note [DELETE]
-+ Response 204
 
 
