@@ -9,27 +9,31 @@ Notes API is a *short texts saving* service similar to its physical paper presen
 ## Help us improve!
 If you find any error or omission on the documentation, or you’d like us to cover or clarify something, just [let us know] (http://support.simkl.com/) and we’ll try to make you happy.
 
-# Group Authentication - OAuth [/]
-The API uses OAuth2. If you know what's up with OAuth2, grab your library and starting rolling. This details our endpoints.
+# Group Authentication - OAuth
+The API uses OAuth2. This details our endpoints.
 
-To obtain a client_id and client_secret, create an application on the simkl website. Here are some helpful links to get your started:
+To obtain a client_id and client_secret, create an application on the simkl website. Here are some helpful links to get your started.
+...
+
+To make calls on behalf of a user you have to obtain an access token. To do this, first use **http://simkl.com/oauth/authorize** method to get "code" and then post it in JSON format to **http://api.simkl.com/oauth/token** url. In response you'll get the access token.
+For more details see Authorize and Token sections below.
 
 
 ## Authorize [/oauth/authorize?response_type=code&client_id=client_id&redirect_uri=redirect_uri&state=state]
-First you have to get "code" with help of */oauth/authorize* method then post this "code" to 
-
-
 ### Authorize Application [GET]
 Redirect a user to this URL. There the user will grant permissions for you app and if everything is fine you'll get a code which you can exchange for access token. 
 Once you have an access token you can use it to make calls on behalf of a user.
 
 **Note:** You should use the https://simkl.com domain when creating this URL and not the API URL.
+
 + Parameters
     + response_type (string) ... must be "code"
     + client_id (string) ... Get this from your app settings
     + redirect_uri (string) ... URI in your app settings
     + state (optional, string) ... your custom variable
   
++ Request http://simkl.com/oauth/authorize?response_type=code&client_id=c7be48f1559a6d794w1925237c626326c7bsdfsa559a6d794w1925137c626316&redirect_uri=http://test.com/oauth.html
+    
 + Response 200
 
 ## Token [/notes/{id}]
