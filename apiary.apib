@@ -1,4 +1,5 @@
 FORMAT: 1A
+HOST: http://api.simkl.com
 
 # Simkl
 We’ve worked very hard to make Simkl the dream "TV, Anime and Movie Tracker". However, chances are it doesn’t do 100% of what you need it to do. Luckily for you, we added a API so you can extend Simkl’s functionality.
@@ -8,33 +9,41 @@ Notes API is a *short texts saving* service similar to its physical paper presen
 ## Help us improve!
 If you find any error or omission on the documentation, or you’d like us to cover or clarify something, just [let us know] (http://support.simkl.com/) and we’ll try to make you happy.
 
-# Group Authentication - OAuth
+# Group Authentication - OAuth [/]
 The API uses OAuth2. If you know what's up with OAuth2, grab your library and starting rolling. This details our endpoints.
 
 To obtain a client_id and client_secret, create an application on the simkl website. Here are some helpful links to get your started:
 
 
-## Authorize [/notes]
+## Authorize [/oauth/authorize?response_type=code&client_id=client_id&redirect_uri=redirect_uri&state=state]
+First you have to get "code" with help of */oauth/authorize* method then post this "code" to 
+
+
 ### Authorize Application [GET]
-Construct then redirect to this URL. The simkl website will request permissions for your app and the user will have the opportunity to sign up for a new simkl account or sign in with their existing account.
+Redirect a user to this URL. There the user will grant permissions for you app and if everything is fine you'll get a code which you can exchange for access token. 
+Once you have an access token you can use it to make calls on behalf of a user.
 
-**Note:** You should use the normal https://simkl.com hostname when creating this URL and not the API URL.
+**Note:** You should use the https://simkl.com domain when creating this URL and not the API URL.
++ Parameters
+    + response_type (string) ... must be "code"
+    + client_id (string) ... Get this from your app settings
+    + redirect_uri (string) ... URI in your app settings
+    + state (optional, string) ... your custom variable
+  
++ Response 200
 
-+ Response 200 (application/json)
-
-        [{
-          "id": 1, "title": "Jogging in park"
-        }, {
-          "id": 2, "title": "Pick-up posters from post-office"
-        }]
-        
 ## Token [/notes/{id}]
 ### Exchange code for access_token [POST]
 Use the authorization code GET parameter sent back to your redirect_uri to get an access_token. Save the access_token so your app can authenticate the user by sending the Authorization header.
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
 
++ Request (application/json)
 
+        {
+            "description": "Description of Gist",
+            "content": "String content"
+        }
 + Response 200 (application/json)
 
     + Header
