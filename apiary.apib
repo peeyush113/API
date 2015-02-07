@@ -9,7 +9,7 @@ Notes API is a *short texts saving* service similar to its physical paper presen
 ## Help us improve!
 If you find any error or omission on the documentation, or you’d like us to cover or clarify something, just [let us know] (http://support.simkl.com/) and we’ll try to make you happy.
 
-# Group Authentication - OAuth
+# Group Authentication - OAuth 2.0
 The API uses OAuth2. This details our endpoints.
 
 To obtain a `client_id` and `client_secret`, create an application on the simkl website. Here are some helpful links to get your started.
@@ -78,6 +78,99 @@ Invalid code will give you a 401 error
             { 
                 "error"  : "grant_error"
             }
+
+# Group Sync
+If you want to store all of your watched history or download your history list from simkl then *syncing* is what you are looking for.  
+
+## Add to History [/sync/add-to-history]
+### Add items to watched/watching history [POST]
+<h4>» OAuth Required</h4>
+Add items to a user's watched history. Can be passed shows,seasons,episodes and movies. If no episode for the show is passed then it will be marked as completed. If season will be specified then only episodes in those seasons will be marked.
+
+if `watched_at` UTC datetime is passed then all will be marked as watched in the past. 
+If `ids` field has more than 1 resources then we will search better.
+
+<h4>JSON POST DATA</h4>
+Key|Type|Value
+---|----|-----
+movies|array|Movie objects (see examples →) 
+shows|array|Show objects
+episodes|array|Episode objects
+
+<h4>MEDIA OBJECTS POST DATA</h4>
+Key|Type|Value
+---|----|-----
+item|object|movie, show or episode objects 
+watched_at|datetime|UTC datetime when the item was watched
+
++ Request
+
+        {
+            'movies' : [
+             {
+                'watched_at' : '2011-12-03 13:44:00',
+                'title'      : 'Terminator 3: Rise of the Machines',
+                'year'       : '2003',
+                'ids'        : {
+                    'imdb' : 'tt0181852',
+                    'tmdb' : 296,
+                    'simkl': 53536
+                }
+            },
+            {
+                'ids':{
+                    'simkl': 210728    
+                }
+            }
+            ],
+            'shows' : [
+                {
+                    'title': 'Attack on Titan',
+                    'year': 2013,
+                    'ids': {
+                        'simkl' : 39687,
+                        'mal'   : 16498,
+                        'tvdb'  : 267440,
+                        'imdb'  : 'tt2560140',
+                        'anidb' : 9541
+                    }
+                },
+                {
+                    
+                    'title': 'The Walking Dead',
+                    'year': 2010,
+                    'ids': {
+                        'simkl': 2090,
+                        'tvdb': 153021,
+                        'imdb': 'tt1520211',
+                        
+                    },
+                    'seasons': [
+                        {
+                            'watched_at': '2011-09-01 14:44:00',
+                            'number': 2
+                        },
+                        {
+                            'number': 1
+                            'episodes':[
+                                {
+                                    'number': 1  
+                                },
+                                {
+                                    'number': 2  
+                                }
+                            ]
+                        }
+                        
+                    ]
+                }
+            ]
+        }
+
++ Response 200 (application/json)
+
+
+
 
 
 
