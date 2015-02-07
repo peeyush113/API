@@ -12,16 +12,15 @@ If you find any error or omission on the documentation, or you’d like us to co
 # Group Authentication - OAuth
 The API uses OAuth2. This details our endpoints.
 
-To obtain a client_id and client_secret, create an application on the simkl website. Here are some helpful links to get your started.
+To obtain a `client_id` and `client_secret`, create an application on the simkl website. Here are some helpful links to get your started.
 ...
 
-To make calls on behalf of a user you have to obtain an access token. To do this, first use **http://simkl.com/oauth/authorize** method to get "code" and then post it in JSON format to **http://api.simkl.com/oauth/token** url. In response you'll get the access token.
+To make calls on behalf of a user you have to obtain an `access_token`. To do this, first use **http://simkl.com/oauth/authorize** method to get `code` and then post it in JSON format to **http://api.simkl.com/oauth/token** url. In response you'll get the `access_token`.
 For more details see Authorize and Token sections below.
-
 
 ## Authorize [/oauth/authorize?response_type=code&client_id=client_id&redirect_uri=redirect_uri&state=state]
 ### Authorize Application [GET]
-Redirect a user to this URL. There the user will grant permissions for you app and if everything is fine you'll get a code which you can exchange for access token. 
+Redirect a user to this URL. There the user will grant permissions for you app and if everything is fine you'll get a `code` which you can exchange for `access_token`. 
 Once you have an access token you can use it to make calls on behalf of a user.
 
 **Note:** You should use the https://simkl.com domain when creating this URL and not the API URL.
@@ -32,30 +31,53 @@ Once you have an access token you can use it to make calls on behalf of a user.
     + redirect_uri (string) ... URI in your app settings
     + state (optional, string) ... your custom variable
   
-+ Request http://simkl.com/oauth/authorize?response_type=code&client_id=c7be48f1559a6d794w1925237c626326c7bsdfsa559a6d794w1925137c626316&redirect_uri=http://test.com/oauth.html
-    
++ Request http://simkl.com/oauth/authorize?response_type=code&client_id=c7be48f1559a6d794w1925237c626326c7bsdfsa559a6d794w1925137c626316&redirect_uri=http://yourdomain.com/oauth.html
+        
+        
 + Response 200
 
-## Token [/notes/{id}]
+## Token [/oauth/token]
 ### Exchange code for access_token [POST]
-Use the authorization code GET parameter sent back to your redirect_uri to get an access_token. Save the access_token so your app can authenticate the user by sending the Authorization header.
-+ Parameters
-    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+The redirect to your application in the step above will include a `code` parameter which you can exchange for an `access_token` using this method. 
+
+Save the `access_token` somewhere safe. From that moment your app can authenticate the user by sending the `Authorization` header.
+
+<h4>JSON POST DATA</h4>
+Key|Type|Value
+---|----|-----
+code|string|code you've get from authorize method
+client_id|string|Get this in your app settings
+client_secret|string|Get this in your app settings
+redirect_uri|string|Your URI in your app settings 
+grant_type|string|`authorization_code` or `refresh_token`
+
 
 + Request (application/json)
 
         {
-            "description": "Description of Gist",
-            "content": "String content"
+            'code'          : 'd7be48f1559a6d794w1925237c626326c7dddfsa559a6d794w1925137c626313',
+            'client_id'     : 'c7be48f1559a6d794w1925237c626326c7bsdfsa559a6d794w1925137c626352',
+            'client_secret' : 'a9be48f1529a2d794w1925237c626326c7dddfsa559a6d794w1925137c626321'
+            'redirect_uri'  : 'http://yourdomain.com/oauth.html',
+            'grant_type'    : 'authorization_code'
         }
 + Response 200 (application/json)
-
-    + Header
-
-            X-My-Header: The Value
-
+Valid code will generate you the `access_token`
     + Body
 
-            { "id": 2, "title": "Pick-up posters from post-office" }
+            { 
+                "access_token"  : "b5be48f1529a2d794f1925237c626326c7dddfsa559a6d794w1925137c622329",
+                "token_type"    : "bearer", 
+                "expires_in"    : 3600,
+                "scope"         : "public"
+            }
++ Response 401 (application/json)
+Invalid code will give you a 401 error
+    + Body
+
+            { 
+                "error"  : "grant_error"
+            }
+
 
 
