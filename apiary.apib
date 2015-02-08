@@ -18,6 +18,27 @@ HTTP Verb|Description
 `DELETE`| Delete the resource. Success returns `200` or `204` status code.
 
 ### HTTP Status Codes
+The Simkl API attempts to return appropriate HTTP status codes for every request.
+
+Code|Text|Description
+---|---|----
+`200`| OK | Success!
+`201`| OK | Success - *new resource created (POST)*
+`204`| OK | Success - *no content to return (DELETE)*
+`400`| Bad Request | The request was invalid or cannot be otherwise served. An accompanying error message will explain further.
+`401`| Unauthorized | [Authentication credentials] (#reference/authentication-oauth-2.0) were missing or incorrect.
+`403`| Forbidden | The request is understood, but it has been refused or access is not allowed. An accompanying error message will explain why. This code is used whe using invalid API key or unapproved app or requests are being denied due to API limits.
+`404`| Not Found | The URI requested is invalid or the resource requested. Also returned when the requested format is not supported by the requested method.
+`405`| Not Found | *[IN_DEV]*
+`409`| Unauthorized | *[IN_DEV]* Conflict - resource already created
+`412`| *[IN_DEV]* | *[IN_DEV]*
+`422`| *[IN_DEV]* | *[IN_DEV]*
+`429`| *[IN_DEV]* | Rate Limit Exceeded
+`500`| Internal Server Error | Something is broken. Please post to the [developer forums] (https://plus.google.com/u/0/communities/106081147921797342801) so the Simkl team can investigate.
+`502`| Bad Gateway | Simkl is down or being upgraded.
+`503`| Service Unavailable | The Simkl servers are up, but overloaded with requests. Try again later.
+
+
 
 ## Help us improve!
 If you find any error or omission on the documentation, or you’d like us to cover or clarify something, just [let us know] (http://support.simkl.com/forums/264009-top-ideas-from-the-community/category/86437-api) and we’ll try to make you happy. You are also welcome to [join our development community] (https://plus.google.com/u/0/communities/106081147921797342801).
