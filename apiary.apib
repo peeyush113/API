@@ -12,7 +12,7 @@ HOST: http://api.simkl.com
 </table>
 
 ## Quickstart
-:lock:  All API access is over HTTP. All responses are returned as JSON. The API is (mostly) RESTful. Here's what you need to know to get started quickly:
+All API access is over HTTP. All responses are returned as JSON. The API is (mostly) RESTful. Here's what you need to know to get started quickly:
 
 ### Use Cases
 The Simkl API lets you build a variety of applications and scripts to integrate Simkl with your apps, show Simkl data in other contexts, and update your watch history from various locations.
@@ -151,7 +151,7 @@ If you want to store all of your watched history or download your history list f
 
 ## Add to History [/sync/history]
 ### Add items to watched/watching history [POST]
-<h4>» OAuth Required</h4>
+<h4>OAuth Required</h4>
 Add items to a user's watched history. You can pass shows,seasons,episodes and movies. If no episode for the show is passed then it will be marked as completed. If season will be specified then only episodes in those seasons will be marked.
 
 if `watched_at` UTC datetime is passed then all will be marked as watched in the past. 
