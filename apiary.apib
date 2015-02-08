@@ -3,7 +3,6 @@ HOST: http://api.simkl.com
 
 # Simkl
 
-
 <table>
     <tr>
         <td width="85" align="center" valign="top"><a href="http://simkl.com" target="_blank"><img src="http://i.simkl.com/img_tv/apiary_logo_api.png" alt="Simkl" width="68" height="67"/></a></td>
@@ -59,13 +58,20 @@ When making API calls you'lll need to send some headers to identify your app.
 Header|Value
 ---|----
 `Content-type` * | `application/json`
-`simkl-api-key` * | Your `client_id` listed under [your Simkl applications] (http://simkl.com/apps/manage/).
+`Simkl-api-key` * | Your `client_id` listed under [your Simkl applications] (http://simkl.com/apps/manage/).
 
 ### Dates
 [In Development] Currently dates are returned as (GMT - 05:00 New York time zone)
 
 All dates will be GMT and returned in the ISO 8601 format like `2015-03-15T15:30:11.000Z. Adjust 
 accordingly in your app for the user's local timezone.
+
+### Standard Media Objects
+
+All methods will accept or return standard media objects for `movie`, `show`, `season`, `episode` items. 
+Here are examples for all minimal objects:
+
+
 
 
 ## Help us improve!
@@ -175,7 +181,7 @@ Key|Type|Value
     + Header
             
             Authorization: Bearer [token]
-            simkl-api-key: [client_id]
+            Simkl-api-key: [client_id]
 
     + Body
     
