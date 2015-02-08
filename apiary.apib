@@ -2,15 +2,33 @@ FORMAT: 1A
 HOST: http://api.simkl.com
 
 # Simkl
-We’ve worked very hard to make Simkl the dream "TV, Anime and Movie Tracker". However, chances are it doesn’t do 100% of what you need it to do. Luckily for you, we added a API so you can extend Simkl’s functionality.
+We’ve worked very hard to make [Simkl] (http://simkl.com/) the dream "TV, Anime and Movie Tracker". However, chances are it doesn’t do 100% of what you need it to do. Luckily for you, we added a API so you can extend Simkl’s functionality.
 
-Notes API is a *short texts saving* service similar to its physical paper presence on your table. test
+
+
+## Quickstart
+The Simkl API is a RESTful API that communicates over the HTTP protocol. Here's what you need to know to get started quickly:
+
+### Api URL
+### Verbs
+HTTP Verb|Description
+---|----
+`GET`| Retrieve the resource.  Success returns `200` status code.
+`POST`| Create a new resource.  Success returns `201` status code.
+`DELETE`| Delete the resource. Success returns `200` or `204` status code.
+
+### HTTP Status Codes
 
 ## Help us improve!
-If you find any error or omission on the documentation, or you’d like us to cover or clarify something, just [let us know] (http://support.simkl.com/) and we’ll try to make you happy.
+If you find any error or omission on the documentation, or you’d like us to cover or clarify something, just [let us know] (http://support.simkl.com/forums/264009-top-ideas-from-the-community/category/86437-api) and we’ll try to make you happy. You are also welcome to [join our development community] (https://plus.google.com/u/0/communities/106081147921797342801).
+
+
+
 
 # Group Authentication - OAuth 2.0
-The API uses OAuth2. This details our endpoints.
+There's no reinventing the wheel here so the API uses OAuth2. 
+
+Requesting user information requires `token` tat need to be included in all requests made to the API using the AUTHORIZATION header .
 
 To obtain a `client_id` and `client_secret`, create an application on the simkl website. Here are some helpful links to get your started.
 ...
