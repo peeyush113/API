@@ -3,6 +3,7 @@ HOST: http://api.simkl.com
 
 # Simkl
 
+
 <table>
     <tr>
         <td width="85" align="center" valign="top"><a href="http://simkl.com" target="_blank"><img src="http://i.simkl.com/img_tv/apiary_logo_api.png" alt="Simkl" width="68" height="67"/></a></td>
@@ -71,7 +72,85 @@ accordingly in your app for the user's local timezone.
 All methods will accept or return standard media objects for `movie`, `show`, `season`, `episode` items. 
 Here are examples for all minimal objects:
 
+<table>
+    <tr>
+        <td align="center" valign="top"><strong>movie</strong></td>
+      <td>
+<pre>Movie example:<code>{
+    "title":"Terminator 3: Rise of the Machines",
+    "year":2003,
+    "ids":{
+        "simkl":53536,
+        "imdb":"tt0181852",
+        "tmdb":296
+    }
+}</code></pre>
+<pre>Example when only id is known:<code>{
+    "ids":{
+        "simkl":53536
+    }
+}</code></pre></td>
+    </tr>
+    
+    
+    <tr>
+      <td align="center" valign="top"><strong>show</strong></td>
+      <td>
+<pre>TV Show example:<code>{
+    "title":"The Walking Dead",
+    "year":2010,
+    "ids":{
+        "simkl":2090,
+        "tvdb":153021,
+        "imdb":"tt1520211"
+    }
+}</code></pre>
 
+
+<pre>Anime example:<code>{
+    "title": "Attack on Titan",
+    "year": 2013,
+    "ids": {
+        "simkl": 39687,
+        "mal": 16498,
+        "tvdb": 267440,
+        "imdb": "tt2560140",
+        "anidb": 9541
+    }
+}</code></pre></td>
+    </tr>
+    
+    
+    <tr>
+      <td align="center" valign="top"><strong>season</strong></td>
+      <td>
+<pre>Select all episodes in Season 2 example<code>{
+    "seasons": 
+        {
+            "number": 2
+        }
+}</code></pre></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top"><strong>episode</strong></td>
+      <td>
+<pre>Select episodes S01E02, S01E02 example<code>{
+    "seasons": 
+        {
+            "number": 1,
+            "episodes": [
+                {
+                    "number": 1
+                },
+                {
+                    "number": 2
+                }
+            ]
+        }
+    ]
+}</code></pre></td>
+    </tr>
+</table>
 
 
 ## Help us improve!
