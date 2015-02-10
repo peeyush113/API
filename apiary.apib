@@ -200,6 +200,9 @@ client_secret|string|Get this in your app settings
 redirect_uri|string|Your URI in your app settings 
 grant_type|string|`authorization_code` or `refresh_token`
 
+`access_token` do not have expiration date (Never expire).
+
+`access_token` can be deleted by user when revoking app access rights in [Connected Apps settings] (http://simkl.com/settings/connected-apps/).
 
 + Request (application/json)
 
