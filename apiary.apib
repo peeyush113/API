@@ -1,19 +1,19 @@
 FORMAT: 1A
-HOST: http://api.simkl.com
+HOST: https://api.simkl.com
 
 # Simkl
 
 <table>
     <tr>
-        <td width="85" align="center" valign="top"><a href="http://simkl.com" target="_blank"><img src="http://i.simkl.com/img_tv/apiary_logo_api.png" alt="Simkl" width="68" height="67"/></a></td>
-      <td>We’ve worked very hard to make <a href="http://simkl.com/" target="_blank">Simkl</a>  the dream "TV, Anime and Movie Tracker". However, chances are it doesn’t do 100% of what you need it to do. Luckily for you, we added an API so you can extend Simkl’s functionality.</td>
+        <td width="85" align="center" valign="top"><a href="https://simkl.com" target="_blank"><img src="https://i.simkl.com/img_tv/apiary_logo_api.png" alt="Simkl" width="68" height="67"/></a></td>
+      <td>We’ve worked very hard to make <a href="https://simkl.com/" target="_blank">Simkl</a>  the dream "TV, Anime and Movie Tracker". However, chances are it doesn’t do 100% of what you need it to do. Luckily for you, we added an API so you can extend Simkl’s functionality.</td>
   </tr>
     <tr>
       <td colspan="2"><br><b>Useful Links:</b><br>
-      <a href="http://simkl.com/">Simkl.com</a> &nbsp; ∙ &nbsp;
-      <a href="http://simkl.com/apps/manage/">Manage Apps</a> &nbsp; ∙ &nbsp;
+      <a href="https://simkl.com/">Simkl.com</a> &nbsp; ∙ &nbsp;
+      <a href="https://simkl.com/apps/manage/">Manage Apps</a> &nbsp; ∙ &nbsp;
       <a href="https://plus.google.com/u/0/communities/106081147921797342801/stream/e377d10b-b3dc-411b-9dd2-dd1017da75a4">What's New</a> &nbsp; ∙ &nbsp;
-      <a href="http://support.simkl.com/forums/264009-top-ideas-from-the-community/category/86437-api">Feature Requests</a> &nbsp; ∙ &nbsp;
+      <a href="https://support.simkl.com/forums/264009-top-ideas-from-the-community/category/86437-api">Feature Requests</a> &nbsp; ∙ &nbsp;
       <a href="https://plus.google.com/u/0/communities/106081147921797342801">Developer Group</a>
       
       </td>
@@ -33,7 +33,7 @@ Here are some examples of the things you can build with the Simkl API:
 - Plugin for your favorite media center app to sync your watch history with Simkl.
 
 ### Api URL
-`http://api.simkl.com/`
+`https://api.simkl.com/`
 ### Verbs
 HTTP Verb|Description
 ---|----
@@ -68,7 +68,7 @@ When making API calls you'lll need to send some headers to identify your app.
 Header|Value
 ---|----
 `Content-Type` * | `application/json`
-`Simkl-API-Key` * | Your `client_id` listed under [your Simkl applications] (http://simkl.com/apps/manage/).
+`Simkl-API-Key` * | Your `client_id` listed under [your Simkl applications] (https://simkl.com/apps/manage/).
 
 ### Dates
 [In Development] Currently dates are returned as (GMT - 05:00 New York time zone)
@@ -168,7 +168,7 @@ Here are examples for all objects:
 
 
 ## Help us improve!
-If you find any error or omission on the documentation, or you’d like us to cover or clarify something, just [let us know] (http://support.simkl.com/forums/264009-top-ideas-from-the-community/category/86437-api) and we’ll try to make you happy. You are also welcome to [join our development community] (https://plus.google.com/u/0/communities/106081147921797342801).
+If you find any error or omission on the documentation, or you’d like us to cover or clarify something, just [let us know] (https://support.simkl.com/forums/264009-top-ideas-from-the-community/category/86437-api) and we’ll try to make you happy. You are also welcome to [join our development community] (https://plus.google.com/u/0/communities/106081147921797342801).
 
 
 
@@ -181,7 +181,7 @@ Requesting user assosiated information requires `token` that needs to be include
 To obtain a `client_id` and `client_secret`, create an application on the simkl website. Here are some helpful links to get your started.
 ...
 
-To make calls on behalf of a user you have to obtain an `access_token`. To do this, first use **http://simkl.com/oauth/authorize** method to get `code` and then post it in JSON format to **http://api.simkl.com/oauth/token** url. In response you'll get the `access_token`.
+To make calls on behalf of a user you have to obtain an `access_token`. To do this, first use **https://simkl.com/oauth/authorize** method to get `code` and then post it in JSON format to **https://api.simkl.com/oauth/token** url. In response you'll get the `access_token`.
 For more details see Authorize and Token sections below.
 
 ## Authorize [/oauth/authorize?response_type=code&client_id=client_id&redirect_uri=redirect_uri&state=state]
@@ -189,7 +189,7 @@ For more details see Authorize and Token sections below.
 Redirect a user to this URL. There the user will grant permissions for you app and if everything is fine you'll get a `code` which you can exchange for `access_token`. 
 Once you have an access token you can use it to make calls on behalf of a user.
 
-**Note:** You should use the http://simkl.com domain when creating this URL and not the API URL.
+**Note:** You should use the https://simkl.com domain when creating this URL and not the API URL.
 
 + Parameters
     + response_type (string) ... must be "code"
@@ -197,7 +197,7 @@ Once you have an access token you can use it to make calls on behalf of a user.
     + redirect_uri (string) ... URI in your app settings
     + state (optional, string) ... your custom variable
   
-+ Request http://simkl.com/oauth/authorize?response_type=code&client_id=c7be48f1559a6d794w1925237c626326c7bsdfsa559a6d794w1925137c626316&redirect_uri=http://yourdomain.com/oauth.html
++ Request https://simkl.com/oauth/authorize?response_type=code&client_id=c7be48f1559a6d794w1925237c626326c7bsdfsa559a6d794w1925137c626316&redirect_uri=http://yourdomain.com/oauth.html
         
         
 + Response 200
@@ -219,7 +219,7 @@ grant_type|string|`authorization_code`
 
 `access_token` do not have expiration date (Never expire).
 
-`access_token` can be deleted by user when revoking app access rights in [Connected Apps settings] (http://simkl.com/settings/connected-apps/).
+`access_token` can be deleted by user when revoking app access rights in [Connected Apps settings] (https://simkl.com/settings/connected-apps/).
 
 + Request (application/json)
 
