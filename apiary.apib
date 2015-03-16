@@ -322,6 +322,26 @@ The more parameters you'll pass, the more accurate redirect will be.
 
     + Body
 
++ Request
+    
+    **Redirect to Simkl**, based on Hulu ID example:
+    
+    https://api.simkl.com/redirect?to=Simkl&hulu=740489&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
+
+    PS: Please use your `client_id`.
+
+    + Body
+    
++ Response 302
+
+    You will get "location" header (browser redirect) where the user should be redirected.
+    
+    In this example user will be redirected to [Simkl: The Vampire Diaries S06E11] (https://simkl.com/tv/15578/the-vampire-diaries/season-6/episode-11/)
+
+    + Headers 
+    
+    + Body
+
 
 # Group Sync
 If you want to store all of your watched history or download your history list from simkl then *syncing* is what you are looking for.  
