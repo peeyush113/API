@@ -248,7 +248,7 @@ Invalid code will give you a 401 error
             }
             
 # Group Redirect
-## Redirect to Simkl or Twitter [/redirect{?to,title,year,season,episode,hulu,client_id}]
+## Redirect to Simkl or Twitter [/redirect{?to,title,year,season,episode,client_id}]
 ### Redirect [GET]
 Use this if you want to make redirect (fast post) to twitter or Simkl using shows title or id. It will return "location" header 
 
@@ -261,15 +261,39 @@ More parameters you'll pass, more accurate redirect it will be
             + `twitter`
     + title (optional, string, `The Walking Dead`) ... TV show, anime, or movie title.
     + year (optional, integer, `2010`) ... release year.
-    + season (optional, integer, `1`) ... if set, movies will be ignored. Anime do not have seasons (default = 1).
+    + season = `1` (optional, integer, `1`) ... if set, movies will be ignored. Anime do not have seasons.
     + episode (optional, integer, `4`) ... if set, movies will be ignored.
     + hulu (optional, integer, `752375`) ... hulu_id, all other parameters can be empty if this one specified.
-    + client_id (string) ... Get this from your app settings.
+    + netflix (optional, integer, `70210890`) ... [IN_DEV] Netflix `movieid`, this parameter is in beta and may not work.
+    + client_id (string) ... Get this from [your app settings] (https://simkl.com/apps/manage/).
 
-+ Request https://api.simkl.com/redirect?to=twitter&title=the walking dead&year=2010&season=1&episode=4&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
++ Request
+    
+    https://api.simkl.com/redirect?to=twitter&title=the%20walking%20dead&year=2010&season=1&episode=4&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
 
-+ Response 200
-You will get "location" header where the user should be redirected.
+    PS: Please use your `client_id`.
+
+    + Body
+    
++ Response 302
+
+    You will get "location" header (browser redirect) where the user should be redirected.
+    
+    In this example user will be redirected to [twitter: Share a link with your followers] (https://twitter.com/intent/tweet?text=The%20Walking%20Dead+1x04+%22Vatos%22&url=https%3A%2F%2Fsimkl.com%2Ftv%2F2090%2Fthe-walking-dead%2Fseason-1%2Fepisode-4%2F)
+
+    + Body
+
+
++ Request https://api.simkl.com/redirect?to=twitter&title=the%20walking%20dead&year=2010&season=1&episode=4&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
+    
++ Response 302
+
+    You will get "location" header (browser redirect) where the user should be redirected.
+    
+    In this example user will be redirected to [twitter: Share a link with your followers] (https://twitter.com/intent/tweet?text=The%20Walking%20Dead+1x04+%22Vatos%22&url=https%3A%2F%2Fsimkl.com%2Ftv%2F2090%2Fthe-walking-dead%2Fseason-1%2Fepisode-4%2F)
+
+    + Body
+
 
 # Group Sync
 If you want to store all of your watched history or download your history list from simkl then *syncing* is what you are looking for.  
