@@ -285,7 +285,7 @@ The more parameters you'll pass, the more accurate redirect will be.
             + `http://www.imdb.com/title/tt1520211/`
     + client_id (string) ... Get this from [your app settings] (https://simkl.com/apps/manage/).
 
-+ Request 
++ Request
     
     **Post to twitter** example:
     
@@ -301,6 +301,10 @@ The more parameters you'll pass, the more accurate redirect will be.
     
     In this example user will be redirected to [twitter: Share a link with your followers] (https://twitter.com/intent/tweet?text=The%20Walking%20Dead+1x04+%22Vatos%22&url=https%3A%2F%2Fsimkl.com%2Ftv%2F2090%2Fthe-walking-dead%2Fseason-1%2Fepisode-4%2F)
 
+    + Headers
+    
+            location: //simkl.com/tv/2090/the-walking-dead/season-1/episode-4/
+
     + Body
 
 
@@ -311,7 +315,7 @@ The more parameters you'll pass, the more accurate redirect will be.
     https://api.simkl.com/redirect?to=Simkl&title=The%20walking%20dead&year=2010&season=1&episode=4&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
 
     PS: Please use your `client_id`.
-
+    
     + Body
     
 + Response 302
@@ -319,6 +323,10 @@ The more parameters you'll pass, the more accurate redirect will be.
     You will get "location" header (browser redirect) where the user should be redirected.
     
     In this example user will be redirected to [Simkl: The Walking Dead S01E4] (https://simkl.com/tv/2090/the-walking-dead/season-1/episode-4/)
+
+    + Headers
+    
+            location: //twitter.com/intent/tweet?text=The Walking Dead+1x04+%22Vatos%22&url=https%3A%2F%2Fsimkl.com%2Ftv%2F2090%2Fthe-walking-dead%2Fseason-1%2Fepisode-4%2F
 
     + Body
 
@@ -329,7 +337,7 @@ The more parameters you'll pass, the more accurate redirect will be.
     https://api.simkl.com/redirect?to=Simkl&hulu=740489&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
 
     PS: Please use your `client_id`.
-
+    
     + Body
     
 + Response 302
@@ -338,7 +346,9 @@ The more parameters you'll pass, the more accurate redirect will be.
     
     In this example user will be redirected to [Simkl: The Vampire Diaries S06E11] (https://simkl.com/tv/15578/the-vampire-diaries/season-6/episode-11/)
 
-    + Headers 
+    + Headers
+    
+            location: //simkl.com/tv/15578/the-vampire-diaries/season-6/episode-11/
     
     + Body
 
