@@ -248,7 +248,7 @@ Invalid code will give you a 401 error
             }
             
 # Group Redirect
-## redirect [/redirect?to=twitter&title=title&year=2004&season=1&episode=10&hulu=12165&client_id=client_id]
+## redirect [/redirect?to=twitter&title=title&year=year&season=season&episode=episode&hulu=hulu_id&client_id=client_id]
 ### Auto redirect [GET]
 Use this if you want to make redirect(fast post) to twitter or simkl using shows title or id. It will return "location" header 
 
@@ -262,6 +262,8 @@ More parameters you'll pass, more accurate redirect it will be
     + episode (optional, integer) ... if set, movies will be ignored
     + hulu (optional, integer) ... other parameters can be empty if this one specified
     + to (string,optional) ... must be "simkl"(default) or "twitter" 
+
++ Request https://api.simkl.com/redirect?to=twitter&title=the20walking20dead&year=2010&season=1&episode=10&client_id=c7be48f1559a6d794w1925237c626326c7bsdfsa559a6d794w1925137c626316
 
 + Response 200
 You will get "location" header where the user should be redirected.
