@@ -248,6 +248,8 @@ Invalid code will give you a 401 error
             }
             
 # Group Redirect
+
+## Redirect to Simkl or Twitter [/redirect{?to,title,year,season,episode,client_id}]
 In situations when you want to link directly to the Movie or TV show episode on Simkl from your APP but don't know Simkl URL, you can use the  Redirect API.
 Redirect users directly **to Simkl** page or **to Twitter** (to Share a Simkl link on Twitter with prefilled data).
 
@@ -259,8 +261,6 @@ Here are some examples of the things you can build with the Redirect API:
 - A website page linking directly to Simkl based on IMDB ID.
 - Share and episode on Twitter from browser extension.
 
-
-## Redirect to Simkl or Twitter [/redirect{?to,title,year,season,episode,client_id}]
 ### Redirect [GET]
 <h4>OAuth Not Required</h4>
 Use this if you want to make a redirect to Simkl or (fast post) to Twitter using shows title or id. It will return "location" header.
