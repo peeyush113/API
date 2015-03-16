@@ -252,13 +252,16 @@ Invalid code will give you a 401 error
 ### Auto redirect [GET]
 Use this if you want to make redirect(fast post) to twitter or simkl using shows title or id. It will return "location" header 
 
+More parameters you'll pass, more accurate redirect it will be
 + Parameters
-    + to (string) ... must be "code"
-    + title (string) ... URI in your app settings
-    + year (optional, string) ... your custom variable
-    + season (optional, integer) ... your custom variable
-    + episode (optional, integer) ... your custom variable
+
     + client_id (string) ... Get this from your app settings
+    + title (optional, string) ... tv show,anime,movie title
+    + year (optional, integer) ... release year
+    + season (optional, integer) ... if specified, movies will be ignored. Anime do not have seasons(default = 1)
+    + episode (optional, integer) ... if specified, movies will be ignored
+    + hulu (optional, integer) ... other parameters can be empty if this one is specified
+    + to (string,optional) ... must be "simkl"(default) or "twitter" 
 
 
 # Group Sync
