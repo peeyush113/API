@@ -269,6 +269,8 @@ More parameters you'll pass, more accurate redirect it will be
 
 + Request
     
+    Post to twitter example:
+    
     https://api.simkl.com/redirect?to=twitter&title=the%20walking%20dead&year=2010&season=1&episode=4&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
 
     PS: Please use your `client_id`.
@@ -284,13 +286,21 @@ More parameters you'll pass, more accurate redirect it will be
     + Body
 
 
-+ Request https://api.simkl.com/redirect?to=twitter&title=the%20walking%20dead&year=2010&season=1&episode=4&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
++ Request
+    
+    Second example. Redirect to Simkl episode page:
+    
+    https://api.simkl.com/redirect?to=Simkl&title=the%20walking%20dead&year=2010&season=1&episode=4&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
+
+    PS: Please use your `client_id`.
+
+    + Body
     
 + Response 302
 
     You will get "location" header (browser redirect) where the user should be redirected.
     
-    In this example user will be redirected to [twitter: Share a link with your followers] (https://twitter.com/intent/tweet?text=The%20Walking%20Dead+1x04+%22Vatos%22&url=https%3A%2F%2Fsimkl.com%2Ftv%2F2090%2Fthe-walking-dead%2Fseason-1%2Fepisode-4%2F)
+    In this example user will be redirected to [Simkl: The Walking Dead S01E4] (https://simkl.com/tv/2090/the-walking-dead/season-1/episode-4/)
 
     + Body
 
