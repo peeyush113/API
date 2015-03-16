@@ -248,20 +248,20 @@ Invalid code will give you a 401 error
             }
             
 # Group Redirect
-## Redirect to Simkl or Twitter by URL [/redirect?to=twitter&title=title&year=year&season=season&episode=episode&hulu=hulu_id&client_id=client_id]
-### Auto redirect [GET]
+## Redirect to Simkl or Twitter [/redirect{?to,title,year,season,episode,hulu,client_id}]
+### Redirect [GET]
 Use this if you want to make redirect (fast post) to twitter or Simkl using shows title or id. It will return "location" header 
 
 More parameters you'll pass, more accurate redirect it will be
 + Parameters
 
-    + client_id (string) ... Get this from your app settings
-    + title (optional, string) ... tv show,anime,movie title
-    + year (optional, integer) ... release year
-    + season (optional, integer) ... if set, movies will be ignored. Anime do not have seasons (default = 1)
-    + episode (optional, integer) ... if set, movies will be ignored
-    + hulu (optional, integer) ... other parameters can be empty if this one specified
-    + to (string,optional) ... must be "simkl"(default) or "twitter" 
+    + to (optional, string, `simkl`) ... must be "Simkl" (default) or "twitter". 
+    + title (optional, string, `The Walking Dead`) ... TV show, anime, or movie title.
+    + year (optional, integer, `2010`) ... release year.
+    + season (optional, integer, `1`) ... if set, movies will be ignored. Anime do not have seasons (default = 1).
+    + episode (optional, integer, `4`) ... if set, movies will be ignored.
+    + hulu (optional, integer, `752375`) ... hulu_id, all other parameters can be empty if this one specified.
+    + client_id (string) ... Get this from your app settings.
 
 + Request https://api.simkl.com/redirect?to=twitter&title=the20walking20dead&year=2010&season=1&episode=10&client_id=c7be48f1559a6d794w1925237c626326c7bsdfsa559a6d794w1925137c626316
 
