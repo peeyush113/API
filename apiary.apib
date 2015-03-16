@@ -248,8 +248,9 @@ Invalid code will give you a 401 error
             }
             
 # Group Redirect
+In some su
 ## Redirect to Simkl or Twitter [/redirect{?to,title,year,season,episode,client_id}]
-### Redirect [GET]
+### Redirect [GET] 
 Use this if you want to make redirect (fast post) to twitter or Simkl using shows title or id. It will return "location" header 
 
 More parameters you'll pass, more accurate redirect it will be
@@ -265,13 +266,17 @@ More parameters you'll pass, more accurate redirect it will be
     + episode (optional, integer, `4`) ... if set, movies will be ignored.
     + hulu (optional, integer, `752375`) ... hulu_id, all other parameters can be empty if this one specified.
     + netflix (optional, integer, `70210890`) ... [IN_DEV] Netflix `movieid`, this parameter is in beta and may not work.
+    + imdb (optional, integer, `tt1520211`) ... [IN_DEV] can be IMDB ID or full IMDB URL.
+        + Values
+            + `tt1520211`
+            + `http://www.imdb.com/title/tt1520211/`
     + client_id (string) ... Get this from [your app settings] (https://simkl.com/apps/manage/).
 
-+ Request
++ Request 
     
     Post to twitter example:
     
-    https://api.simkl.com/redirect?to=twitter&title=the%20walking%20dead&year=2010&season=1&episode=4&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
+    https://api.simkl.com/redirect?to=twitter&title=The%20walking%20dead&year=2010&season=1&episode=4&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
 
     PS: Please use your `client_id`.
 
@@ -290,7 +295,7 @@ More parameters you'll pass, more accurate redirect it will be
     
     Second example. Redirect to Simkl episode page:
     
-    https://api.simkl.com/redirect?to=Simkl&title=the%20walking%20dead&year=2010&season=1&episode=4&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
+    https://api.simkl.com/redirect?to=Simkl&title=The%20walking%20dead&year=2010&season=1&episode=4&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
 
     PS: Please use your `client_id`.
 
