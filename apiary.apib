@@ -248,7 +248,7 @@ Invalid code will give you a 401 error
             }
             
 # Group Redirect
-## redirect [/redirect]
+## redirect [/redirect?title=title&year=2004&season=1&episode=10&hulu=12165&client_id=client_id]
 ### Auto redirect [GET]
 Use this if you want to make redirect(fast post) to twitter or simkl using shows title or id. It will return "location" header 
 
@@ -258,8 +258,8 @@ More parameters you'll pass, more accurate redirect it will be
     + client_id (string) ... Get this from your app settings
     + title (optional, string) ... tv show,anime,movie title
     + year (optional, integer) ... release year
-    + season (optional, integer) ... if specified, movies will be ignored. Anime do not have seasons(default = 1)
-    + episode (optional, integer) ... if specified, movies will be ignored
+    + season (optional, integer) ... if set, movies will be ignored. Anime do not have seasons(default = 1)
+    + episode (optional, integer) ... if set, movies will be ignored
     + hulu (optional, integer) ... other parameters can be empty if this one is specified
     + to (string,optional) ... must be "simkl"(default) or "twitter" 
 
