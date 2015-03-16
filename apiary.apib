@@ -248,12 +248,25 @@ Invalid code will give you a 401 error
             }
             
 # Group Redirect
-In some su
-## Redirect to Simkl or Twitter [/redirect{?to,title,year,season,episode,client_id}]
-### Redirect [GET] 
-Use this if you want to make redirect (fast post) to twitter or Simkl using shows title or id. It will return "location" header 
+In situations when you want to link directly to the Movie or TV show episode on Simkl from your APP but don't know Simkl URL, you can use the  Redirect API.
+Redirect users directly **to Simkl** page or **to Twitter** (to Share a Simkl link on Twitter with prefilled data).
 
-More parameters you'll pass, more accurate redirect it will be
+### Use Cases
+
+Here are some examples of the things you can build with the Redirect API:
+
+- A browser extension to quickly link to Simkl based on pages content.
+- A website page linking directly to Simkl based on IMDB ID.
+- Share and episode on Twitter from browser extension.
+
+
+## Redirect to Simkl or Twitter [/redirect{?to,title,year,season,episode,client_id}]
+### Redirect [GET]
+<h4>OAuth Not Required</h4>
+Use this if you want to make redirect (fast post) to Twitter or Simkl using shows title or id. It will return "location" header.
+
+The more parameters you'll pass, the more accurate redirect will be.
+
 + Parameters
 
     + to =`Simkl` (optional, string, `twitter`) ... can be "Simkl" or "twitter". 
@@ -274,7 +287,7 @@ More parameters you'll pass, more accurate redirect it will be
 
 + Request 
     
-    Post to twitter example:
+    **Post to twitter** example:
     
     https://api.simkl.com/redirect?to=twitter&title=The%20walking%20dead&year=2010&season=1&episode=4&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
 
@@ -293,7 +306,7 @@ More parameters you'll pass, more accurate redirect it will be
 
 + Request
     
-    Second example. Redirect to Simkl episode page:
+    **Redirect to Simkl**, episode page example:
     
     https://api.simkl.com/redirect?to=Simkl&title=The%20walking%20dead&year=2010&season=1&episode=4&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
 
