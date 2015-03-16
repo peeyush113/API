@@ -246,12 +246,23 @@ Invalid code will give you a 401 error
             { 
                 "error"  : "grant_error"
             }
+            
+# Group Redirect
+## redirect [/redirect]
+### Auto redirect [GET]
+Use this if you want to make redirect(fast post) to twitter or simkl using shows title or id. It will return "location" header 
+
++ Parameters
+    + to (string) ... must be "code"
+    + title (string) ... URI in your app settings
+    + year (optional, string) ... your custom variable
+    + season (optional, integer) ... your custom variable
+    + episode (optional, integer) ... your custom variable
+    + client_id (string) ... Get this from your app settings
+
 
 # Group Sync
 If you want to store all of your watched history or download your history list from simkl then *syncing* is what you are looking for.  
-## redirect [/redirect]
-### Add items to watched/watching history [GET]
-<h4>OAuth Required</h4>
 
 ## Add to History [/sync/history]
 ### Add items to watched/watching history [POST]
