@@ -489,7 +489,10 @@ Key|Type|Value
 Use this method if you want to want which shows or episodes user has seen. You can pass different ids and get their appropriate statuses in a user's list.
 + Parameters
 
-    + type (optional, string, `episode`)
+    + type (optional, string, `episode`).
+        + Values
+            + `episode`
+            + `movie`
     
 + Request (application/json)
     + Header
@@ -503,8 +506,7 @@ Use this method if you want to want which shows or episodes user has seen. You c
                 "netflix": 70262639,
                 "type": "movie"
             },{
-                "netflix": 70080650,
-                "type": "episode"
+                "netflix": 70080650
             },{
                 "hulu":764084
             }]
