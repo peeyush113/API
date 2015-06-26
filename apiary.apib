@@ -69,7 +69,7 @@ When making API calls you'lll need to send some headers to identify your app.
 Header|Value
 ---|----
 `Content-Type` * | `application/json`
-`Simkl-API-Key` * | Your `client_id` listed under [your Simkl applications] (https://simkl.com/apps/manage/).
+`simkl-api-key` * | Your `client_id` listed under [your Simkl applications] (https://simkl.com/apps/manage/).
 
 ### Dates
 [In Development] Currently dates are returned as (GMT - 05:00 New York time zone)
@@ -408,8 +408,8 @@ Key|Type|Value
 + Request (application/json)
     + Header
             
-            Authorization: Bearer [token]
-            Simkl-API-Key: [client_id]
+            authorization: Bearer [token]
+            simkl-api-key: [client_id]
 
     + Body
     
@@ -486,7 +486,44 @@ Key|Type|Value
 ## Get watched [/sync/watched]
 ### Get user's watched items [POST]
 <h4>OAuth Required</h4>
-Returns all movies or shows a user has watched.
+Use this method if you want to want which shows or episodes user has seen. You can pass different ids and get their appropriate statuses in a user's list.
++ Parameters
+
+    + type (optional, string, `episode`)
+    
++ Request (application/json)
+    + Header
+            
+            authorization: Bearer [token]
+            simkl-api-key: [client_id]
+
+    + Body
+    
+            [{
+                "netflix": 70262639,
+                "type": "movie"
+            },{
+                "netflix": 70080650,
+                "type": "episode"
+            },{
+                "hulu":764084
+            }]
++ Response 200 (application/json)
+
+    + Body
+    
+            [{
+                "netflix": 70262639,
+                "result": true
+            },
+            {
+                "netflix": 70080650,
+                "result": false
+            },
+            {
+                "hulu":764084,
+                "result": "not_found"
+            }]
 
 
 
