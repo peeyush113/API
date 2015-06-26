@@ -487,6 +487,7 @@ Key|Type|Value
 ### Get user's watched items [POST]
 <h4>OAuth Required</h4>
 Use this method if you want to want which shows or episodes user has seen. You can pass different ids and get their appropriate statuses in a user's list.
+
 + Parameters
 
     + type (optional, string, `episode`).
@@ -510,12 +511,14 @@ Use this method if you want to want which shows or episodes user has seen. You c
             },{
                 "hulu":764084
             }]
+            
 + Response 200 (application/json)
 
     + Body
     
             [{
                 "netflix": 70262639,
+                "list": "watching"
                 "result": true
             },
             {
@@ -526,8 +529,6 @@ Use this method if you want to want which shows or episodes user has seen. You c
                 "hulu":764084,
                 "result": "not_found"
             }]
-
-
 
 # Group Need some help?
 
