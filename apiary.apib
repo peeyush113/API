@@ -564,11 +564,23 @@ Use this method if you want to want which shows or episodes user has seen. You c
 <h4>OAuth Optional</h4>
 Use it if you want to get random item based on your filters. If OAuth passed wacthed items will be excluded.
     
++ Parameters
+
+    + client_id (string) ... Get this from [your app settings] (https://simkl.com/apps/manage/).
+
+
++ Request
+    
+    **Redirect to Simkl**, episode page example:
+    
+    https://api.simkl.com/search/random/netflix?imdbfrom=5&imdbto=10&yearfrom=2008&yearto=2015&genre=&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
+
+    PS: Please use your `client_id`.
+    
 + Request (application/json)
     + Header
             
             authorization: Bearer [token]
-            simkl-api-key: [client_id]
             
 + Response 200 (application/json)
 
