@@ -555,6 +555,27 @@ Use this method if you want to want which shows or episodes user has seen. You c
                 "hulu":764084,
                 "result": "not_found"
             }]
+            
+            
+## Get watched [/search/random]
+### Get random show,movie,anime [POST]
+<h4>OAuth Optional</h4>
+Use it if you want to get random item based on your filters. If OAuth passed wacthed items will be excluded.
+    
++ Request (application/json)
+    + Header
+            
+            authorization: Bearer [token]
+            simkl-api-key: [client_id]
+            
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "id": 179868
+                "url": "https://simkl.com/movies/179868/terminator-genisys"
+            }
 
 # Group Need some help?
 
