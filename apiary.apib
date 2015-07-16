@@ -404,6 +404,54 @@ The more parameters you'll pass, the more accurate redirect will be.
 
     + Body
 
+# Group Search
+ 
+## Random [/search/random/{netflix}/{?type,genre,rating_from,rating_to,year_from,year_to,client_id}]
+### Get random show, movie or anime [POST]
+<h4>OAuth Optional</h4>
+Use it if you want to get random item based on your filters. If OAuth passed wacthed items will be excluded.
+    
+<h4>MEDIA OBJECTS POST DATA</h4>
+Param|Description
+---|----|-----
+`rating_from`<br> `rating_to`|max value is 10. Random search for TV Shows and Movies will be performed using IMDB ratings. Anime are based on MAL ratings.
+`genre`|Movies,Anime,TV Shows have their own genres. <br><br><b>Movies</b>: <br>action, adventure, animation, comedy, crime, drama, family, fantasy, foreign, history, horror, music, mystery, romance, science-fiction, thriller, tv-movie, war, western<br><b>TV:</b><br>action-and-adventure, adventure, animation, children, comedy, crime, documentary, drama, family, fantasy, food, game-show, home-and-garden, horror, mini-serie, mystery, news, reality, science-fiction, soap, special-interes, sport, suspense, talk-show, thriller, travel, western<br><b>Anime:</b><br>action, adventure, angst, anthropomorphism, blackmail, comedy, detective, ecchi, fantasy, harem, henshin, horror, mahou-shoujo, romance, sci-fi, sexual-abuse, thriller, under-one-roof, western
+`year_from`<br> `year_to`| First released movie starts from 1920.
+
++ Parameters
+    + netflix (optional, string, `netflix`) ... Finds random netflix TV Show, Movie or anime.
+    + type (optional, integer, `tv`) ... 
+        + Values
+            + `tv`
+            + `anime`
+            + `movie`
+    + genre = (optional, string, `action`) ... Movies,Anime and TV Shows have different genres. 
+    + rating_from = `1` (optional, integer, `1`) 
+    + rating_to (optional, integer, `4`)
+    + year_from (optional, integer, `2004`)
+    + year_to (optional, integer, `2010`)
+            
++ Request
+    
+    Netflix random example:
+    
+    https://api.simkl.com/search/random/netflix?imdbfrom=5&imdbto=10&yearfrom=2008&yearto=2015&genre=science-fiction&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
+
+    PS: Please use your `client_id`.
+    
++ Request (application/json)
+    + Header
+            
+            authorization: Bearer [token]
+            
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "id": 179868
+                "url": "https://simkl.com/movies/179868/terminator-genisys"
+            }
 
 
 # Group Sync
@@ -557,54 +605,6 @@ Use this method if you want to want which shows or episodes user has seen. You c
             }]
             
          
-# Group Search
-
-## Random [/search/random]
-### Get random show,movie,anime [POST]
-<h4>OAuth Optional</h4>
-Use it if you want to get random item based on your filters. If OAuth passed wacthed items will be excluded.
-    
-<h4>MEDIA OBJECTS POST DATA</h4>
-Param|Description
----|----|-----
-`rating_from`<br> `rating_to`|max value is 10. Random search for TV Shows and Movies will be performed using IMDB ratings. Anime are based on MAL ratings.
-`genre`|Movies,Anime,TV Shows have their own genres. <br><br><b>Movies</b>: <br>action, adventure, animation, comedy, crime, drama, family, fantasy, foreign, history, horror, music, mystery, romance, science-fiction, thriller, tv-movie, war, western<br><b>TV:</b><br>action-and-adventure, adventure, animation, children, comedy, crime, documentary, drama, family, fantasy, food, game-show, home-and-garden, horror, mini-serie, mystery, news, reality, science-fiction, soap, special-interes, sport, suspense, talk-show, thriller, travel, western<br><b>Anime:</b><br>action, adventure, angst, anthropomorphism, blackmail, comedy, detective, ecchi, fantasy, harem, henshin, horror, mahou-shoujo, romance, sci-fi, sexual-abuse, thriller, under-one-roof, western
-`year_from`<br> `year_to`| First released movie starts from 1920.
-
-+ Parameters
-
-    + type (optional, integer, `tv`) ... 
-        + Values
-            + `tv`
-            + `anime`
-            + `movie`
-    + genre = (optional, string, `action`) ... Movies,Anime and TV Shows have different genres. 
-    + rating_from = `1` (optional, integer, `1`) 
-    + rating_to (optional, integer, `4`)
-    + year_from (optional, integer, `2004`)
-    + year_to (optional, integer, `2010`)
-            
-+ Request
-    
-    Netflix random example:
-    
-    https://api.simkl.com/search/random/netflix?imdbfrom=5&imdbto=10&yearfrom=2008&yearto=2015&genre=science-fiction&client_id=c7be48f1559a6d794w1925237c626326c7be48f1559a6d794w1925137c626316
-
-    PS: Please use your `client_id`.
-    
-+ Request (application/json)
-    + Header
-            
-            authorization: Bearer [token]
-            
-+ Response 200 (application/json)
-
-    + Body
-    
-            {
-                "id": 179868
-                "url": "https://simkl.com/movies/179868/terminator-genisys"
-            }
 
 # Group Need some help?
 
