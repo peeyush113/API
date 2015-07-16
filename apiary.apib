@@ -410,7 +410,18 @@ The more parameters you'll pass, the more accurate redirect will be.
 ### Get random show, movie or anime [POST]
 <h4>OAuth Optional</h4>
 Use it if you want to get random item based on your filters. If OAuth passed wacthed items will be excluded.
-    
+
+### Use Cases
+
+Here are some examples of the things you can build with the Random Search API:
+
+- Find random Netflix TV Show, Anime or Movie to watch
+- Find random TV Show, Anime or Movie in Simkl database
+
+### Requirements
+
+"Powered by SIMKL" with a link to https://simkl.com is required on the page where this functionality is used or inside your app.
+
 <h4>MEDIA OBJECTS POST DATA</h4>
 Param|Description
 ---|----|-----
@@ -419,7 +430,7 @@ Param|Description
 `year_from`<br> `year_to`| First released movie starts from 1920.
 
 + Parameters
-    + netflix (optional, string) ... Finds random netflix TV Show, Movie or anime.
+    + netflix (optional, string) ... Finds random Netflix TV Show, Movie or Anime.
     + type (optional, integer, `tv`) ... 
         + Values
             + `tv`
