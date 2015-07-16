@@ -567,9 +567,9 @@ Use it if you want to get random item based on your filters. If OAuth passed wac
 <h4>MEDIA OBJECTS POST DATA</h4>
 Param|Description
 ---|----|-----
-`rating_from`, `rating_to`|max value is 10. Random search for TV Shows and Movies will be performed using IMDB ratings. Anime are based on MAL ratings.
+`rating_from`<br> `rating_to`|max value is 10. Random search for TV Shows and Movies will be performed using IMDB ratings. Anime are based on MAL ratings.
 `genre`|Movies,Anime,TV Shows have their own genres. <br><br><b>Movies</b>: <br>action, adventure, animation, comedy, crime, drama, family, fantasy, foreign, history, horror, music, mystery, romance, science-fiction, thriller, tv-movie, war, western<br><b>TV:</b><br>action-and-adventure, adventure, animation, children, comedy, crime, documentary, drama, family, fantasy, food, game-show, home-and-garden, horror, mini-serie, mystery, news, reality, science-fiction, soap, special-interes, sport, suspense, talk-show, thriller, travel, western<br><b>Anime:</b><br>action, adventure, angst, anthropomorphism, blackmail, comedy, detective, ecchi, fantasy, harem, henshin, horror, mahou-shoujo, romance, sci-fi, sexual-abuse, thriller, under-one-roof, western
-
+`year_from`<br> `year_to`| First released movie starts from 1920.
 
 + Parameters
 
@@ -579,10 +579,10 @@ Param|Description
             + `anime`
             + `movie`
     + genre = (optional, string, `action`) ... Movies,Anime and TV Shows have different genres. 
-    + year_from (optional, integer, `2004`)
-    + year_to (optional, integer, `2010`)
     + rating_from = `1` (optional, integer, `1`) 
     + rating_to (optional, integer, `4`)
+    + year_from (optional, integer, `2004`)
+    + year_to (optional, integer, `2010`)
             
 + Request
     
