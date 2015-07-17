@@ -406,7 +406,7 @@ The more parameters you'll pass, the more accurate redirect will be.
 
 # Group Search
  
-## Random [/search/random{?type,genre,rating_from,rating_to,year_from,year_to,client_id}]
+## Random [/search/random{?service,type,genre,rating_from,rating_to,year_from,year_to,client_id}]
 ### Find random show, anime or movie [POST]
 <h4>OAuth Optional</h4>
 Use it if you want to find random item based on your filters. If OAuth is passed, wacthed items will be excluded.
@@ -423,7 +423,10 @@ Here are some examples of the things you can build with the Random Search API:
 "Powered by SIMKL" with a link to https://simkl.com is required on the web page or inside your app where this functionality is used.
 
 + Parameters
-    + netflix (optional, string) ... Finds random Netflix TV Show, Anime or Movie.
+    + service = `simkl` (optional, string) ... Finds random TV Show, Anime or Movie.
+        + Values
+            + `netflix`
+            + `simkl`
     + type (optional, integer, `tv`) ... 
         + Values
             + `tv`
